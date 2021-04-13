@@ -22,12 +22,6 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <TextBox x:Name="Логин1" HorizontalAlignment="Left" Height="22" Margin="268,75,0,0" TextWrapping="Wrap" Language="ru-ru" VerticalAlignment="Top" Width="162"/>
-        <TextBlock HorizontalAlignment="Left" Margin="329,54,0,0" TextWrapping="Wrap" Text="Номер" VerticalAlignment="Top" Foreground="White" Width="38"/>
-        <TextBlock HorizontalAlignment="Left" Margin="334,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="27"><Run Foreground="White" Text="Дата"/></TextBlock>
-        <PasswordBox x:Name="Пароль1" HorizontalAlignment="Left" Margin="268,123,0,0" VerticalAlignment="Top" Width="162"/>
-        <TextBlock HorizontalAlignment="Left" Margin="314,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"><Run Foreground="White" Text="Количество"/></TextBlock>
-        <PasswordBox x:Name="Пароль_Copy1" HorizontalAlignment="Left" Margin="268,167,0,0" VerticalAlignment="Top" Width="162"/>
         <Button  Height="92"  Margin="10,10,691,0" VerticalAlignment="Top" Click="Button_Click">
 
             <Button.Template>
@@ -51,9 +45,6 @@
             </Button.Template>
 
         </Button>
-        <Button Content="Удалить" HorizontalAlignment="Left" Margin="162,132,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_3"/>
-        <Button Content="Изменить" HorizontalAlignment="Left" Margin="162,107,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_2"/>
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="162,82,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,234,0,0" TextWrapping="Wrap" Text="Стул" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,270,0,0" TextWrapping="Wrap" Text="Стол" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,302,0,0" TextWrapping="Wrap" Text="Компьютер" VerticalAlignment="Top" Foreground="White" FontSize="24"/>

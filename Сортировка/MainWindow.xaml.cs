@@ -45,6 +45,17 @@ namespace Сортировка
                 кабинеты.Show();
                 Close();
             }
+           else if (Логин.Text == "1" && Пароль.Password == "1")
+            {
+                Hide();
+                Кабинеты кабинеты = new Кабинеты();
+                кабинеты.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Таких нет");
+            }
         }
     }
 }

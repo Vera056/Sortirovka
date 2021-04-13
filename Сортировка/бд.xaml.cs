@@ -14,14 +14,18 @@ using System.Windows.Shapes;
 
 namespace Сортировка
 {
+   
     /// <summary>
     /// Логика взаимодействия для бд.xaml
     /// </summary>
     public partial class бд : Window
     {
+        Сортировка.bd db = new Сортировка.bd();
+        Сортировка.Inventory ind = new Сортировка.Inventory();
         public бд()
         {
             InitializeComponent();
+            roooms.ItemsSource = ind.name.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,5 +43,21 @@ namespace Сортировка
             кабинеты.Show();
             Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
     }
 }

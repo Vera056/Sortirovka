@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SortModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Identifier">
+          <Key>
+            <PropertyRef Name="Id_Identifier" />
+          </Key>
+          <Property Name="Id_Identifier" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Id_Inventory" />
+          </Key>
+          <Property Name="Id_Inventory" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Data_input" Type="date" Nullable="false" />
+          <Property Name="Identifier" Type="int" Nullable="false" />
+          <Property Name="NumberKab" Type="int" />
+        </EntityType>
+        <EntityType Name="NumberKab">
+          <Key>
+            <PropertyRef Name="Id_NumberKab" />
+          </Key>
+          <Property Name="Id_NumberKab" Type="int" Nullable="false" />
+          <Property Name="NumberKab" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="int" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Inventory__Ident__29572725">
+          <End Role="Identifier" Type="Self.Identifier" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Identifier">
+              <PropertyRef Name="Id_Identifier" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="Identifier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventory__Numbe__2A4B4B5E">
+          <End Role="NumberKab" Type="Self.NumberKab" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumberKab">
+              <PropertyRef Name="Id_NumberKab" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="NumberKab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SortModelContainer">
+          <EntitySet Name="Identifier" EntityType="Self.Identifier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NumberKab" EntityType="Self.NumberKab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Inventory__Ident__29572725" Association="Self.FK__Inventory__Ident__29572725">
+            <End Role="Identifier" EntitySet="Identifier" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventory__Numbe__2A4B4B5E" Association="Self.FK__Inventory__Numbe__2A4B4B5E">
+            <End Role="NumberKab" EntitySet="NumberKab" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SortModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Identifier">
+          <Key>
+            <PropertyRef Name="Id_Identifier" />
+          </Key>
+          <Property Name="Id_Identifier" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Identifier1" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Inventories" Relationship="Self.FK__Inventory__Ident__29572725" FromRole="Identifier" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Id_Inventory" />
+          </Key>
+          <Property Name="Id_Inventory" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_input" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Identifier" Type="Int32" Nullable="false" />
+          <Property Name="NumberKab" Type="Int32" />
+          <NavigationProperty Name="Identifier1" Relationship="Self.FK__Inventory__Ident__29572725" FromRole="Inventory" ToRole="Identifier" />
+          <NavigationProperty Name="NumberKab1" Relationship="Self.FK__Inventory__Numbe__2A4B4B5E" FromRole="Inventory" ToRole="NumberKab" />
+        </EntityType>
+        <EntityType Name="NumberKab">
+          <Key>
+            <PropertyRef Name="Id_NumberKab" />
+          </Key>
+          <Property Name="Id_NumberKab" Type="Int32" Nullable="false" />
+          <Property Name="NumberKab1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inventories" Relationship="Self.FK__Inventory__Numbe__2A4B4B5E" FromRole="NumberKab" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Inventory__Ident__29572725">
+          <End Role="Identifier" Type="Self.Identifier" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Identifier">
+              <PropertyRef Name="Id_Identifier" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="Identifier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventory__Numbe__2A4B4B5E">
+          <End Role="NumberKab" Type="Self.NumberKab" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumberKab">
+              <PropertyRef Name="Id_NumberKab" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="NumberKab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SortEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Identifiers" EntityType="Self.Identifier" />
+          <EntitySet Name="Inventories" EntityType="Self.Inventory" />
+          <EntitySet Name="NumberKabs" EntityType="Self.NumberKab" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Inventory__Ident__29572725" Association="Self.FK__Inventory__Ident__29572725">
+            <End Role="Identifier" EntitySet="Identifiers" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventory__Numbe__2A4B4B5E" Association="Self.FK__Inventory__Numbe__2A4B4B5E">
+            <End Role="NumberKab" EntitySet="NumberKabs" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SortModelContainer" CdmEntityContainer="SortEntities">
+          <EntitySetMapping Name="Identifiers">
+            <EntityTypeMapping TypeName="SortModel.Identifier">
+              <MappingFragment StoreEntitySet="Identifier">
+                <ScalarProperty Name="Id_Identifier" ColumnName="Id_Identifier" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Identifier1" ColumnName="Identifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventories">
+            <EntityTypeMapping TypeName="SortModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="Id_Inventory" ColumnName="Id_Inventory" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Data_input" ColumnName="Data_input" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="NumberKab" ColumnName="NumberKab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NumberKabs">
+            <EntityTypeMapping TypeName="SortModel.NumberKab">
+              <MappingFragment StoreEntitySet="NumberKab">
+                <ScalarProperty Name="Id_NumberKab" ColumnName="Id_NumberKab" />
+                <ScalarProperty Name="NumberKab1" ColumnName="NumberKab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SortModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

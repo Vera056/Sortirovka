@@ -11,7 +11,7 @@
             <ImageBrush ImageSource="Resources/Фон.jpg"/>
         </Grid.Background>
 
-        <DataGrid HorizontalAlignment="Left" Height="322" Margin="264,20,0,0" VerticalAlignment="Top" Width="495">
+        <DataGrid HorizontalAlignment="Left" Height="322" Margin="308,20,0,0" VerticalAlignment="Top" Width="474">
 
             <DataGrid.Columns>
 
@@ -81,5 +81,15 @@
             </Button.Template>
 
         </Button>
+        <TextBox x:Name="Логин1" HorizontalAlignment="Left" Height="22" Margin="133,136,0,0" TextWrapping="Wrap" Language="ru-ru" VerticalAlignment="Top" Width="162"/>
+        <TextBlock HorizontalAlignment="Left" Margin="194,115,0,0" TextWrapping="Wrap" Text="Номер" VerticalAlignment="Top" Foreground="White" Width="38"/>
+        <TextBlock HorizontalAlignment="Left" Margin="199,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="27"><Run Foreground="White" Text="Дата"/></TextBlock>
+        <PasswordBox x:Name="Пароль1" HorizontalAlignment="Left" Margin="133,184,0,0" VerticalAlignment="Top" Width="162"/>
+        <TextBlock HorizontalAlignment="Left" Margin="179,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"><Run Foreground="White" Text="Количество"/></TextBlock>
+        <PasswordBox x:Name="Пароль_Copy1" HorizontalAlignment="Left" Margin="133,228,0,0" VerticalAlignment="Top" Width="162"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="27,193,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_3"/>
+        <Button Content="Изменить" HorizontalAlignment="Left" Margin="27,168,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_2"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="27,143,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_1"/>
+        <ComboBox x:Name="roooms" HorizontalAlignment="Left" DisplayMemberPath="name" Margin="10,258,0,0" VerticalAlignment="Top" Width="120" />
     </Grid>
 </Window>
